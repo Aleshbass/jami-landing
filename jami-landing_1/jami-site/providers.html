@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For local providers — Jami</title>
+<meta name="description" content="Join Jami as a local provider. Jami sends people who already know what they need, starting in Manchester.">
+<link rel="canonical" href="https://myjami.app/providers">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myjami.app/providers">
+<meta property="og:title" content="For local providers — Jami">
+<meta property="og:description" content="Settle in, get things done and meet your people. One conversation with Jami.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/webp" href="/assets/nav-logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Main">
+  <a class="logo" href="/" aria-label="Jami home"><img src="/assets/nav-logo.webp" width="46" height="46" alt=""></a>
+  <ul>
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/#first-weeks">Newcomers</a></li>
+    <li><a href="/#control">Trust</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/providers">For providers</a></li>
+  </ul>
+  <button class="btn btn-dark cta" type="button" data-try>Try Jami</button>
+</nav>
+
+<main id="main" class="page-main">
+  <div class="container">
+    <div class="join">
+      <div class="head">
+        <p class="eyebrow">Jami business</p>
+        <h1 class="title">For local providers</h1>
+        <p class="lead">Jami sends people who already know what they need. If you clean, move, cut hair, paint, or run a place in Manchester, you can be on the list.</p>
+      </div>
+      <form class="form" id="join-form" novalidate>
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" placeholder="First and last name" autocomplete="name" required></div>
+        <div class="field"><label for="f-what">What you do</label><input id="f-what" name="what" type="text" placeholder="Mover, painter, photographer…" required></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="you@studio.co.uk" autocomplete="email" required></div>
+        <button class="btn btn-dark" type="submit">Join the list</button>
+        <p class="form-note" id="form-note" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="top">
+      <div class="about">
+        <a class="brand" href="/"><img src="/assets/nav-logo.webp" width="36" height="36" alt="">Jami</a>
+        <p class="tagline">Your personal local agent. Starting with newcomers in Manchester.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul><li><a href="/#how">How it works</a></li><li><a href="/#first-weeks">For newcomers</a></li><li><a href="/#control">Trust &amp; control</a></li><li><a href="/#faq">FAQ</a></li><li><a href="/providers">For providers</a></li></ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul><li><a href="https://www.instagram.com/jamiapp_" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.tiktok.com/@triba.club" target="_blank" rel="noopener">TikTok</a></li><li><a href="https://x.com/jami_app" target="_blank" rel="noopener">X</a></li><li><a href="https://www.facebook.com/share/1EhoXA4Y9a/" target="_blank" rel="noopener">Facebook</a></li></ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul><li><a href="/privacy">Privacy policy</a></li><li><a href="/terms">Terms of service</a></li><li><a href="/acceptable-use">Acceptable use</a></li><li><a href="mailto:admin@myjami.app">admin@myjami.app</a></li></ul>
+      </div>
+    </div>
+    <div class="bottom"><p>© 2026 Jami. Your local life, sorted.</p><p>Made in Manchester</p></div>
+  </div>
+</footer>
+
+<script src="/main.js" defer></script>
+<script src="/chat.js" defer></script>
+<script>
+  document.getElementById('join-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target, note = document.getElementById('form-note');
+    if (!f.checkValidity()) { note.textContent = 'Please fill in all three fields with a valid email.'; f.reportValidity(); return; }
+    const d = Object.fromEntries(new FormData(f));
+    const body = `Name: ${d.name}\nWhat I do: ${d.what}\nEmail: ${d.email}`;
+    location.href = `mailto:admin@myjami.app?subject=${encodeURIComponent('Provider sign-up: ' + d.what)}&body=${encodeURIComponent(body)}`;
+    f.outerHTML = '<p class="form-done">Thanks, ' + d.name.replace(/[<>&]/g,'') + '. Your email app should open with your details. Send it and we\'ll be in touch.</p>';
+  });
+</script>
+</body>
+</html>

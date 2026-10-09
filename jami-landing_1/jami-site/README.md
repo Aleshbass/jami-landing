@@ -1,9 +1,14 @@
 # Jami landing page
 
-Static site for https://myjami.app, deployed on Vercel (project: jami-landing).
+Static site for https://myjami.app, deployed on Vercel (project: jami-landing, root directory: jami-landing_1/jami-site).
 
-- `index.html` — the whole page (HTML, CSS and JS in one file)
+- `index.html` — home page
+- `providers.html` — For local providers (served at /providers)
+- `privacy.html`, `terms.html`, `acceptable-use.html` — policy pages
+- `styles.css` — all styles
+- `main.js` — page motion, nav, FAQ
+- `chat.js` — the "Try Jami" demo chat (opens from any element with `data-try`)
 - `assets/` — images and icons
-- `vercel.json` — any path not in this repo (e.g. /privacy, /terms, /acceptable-use) is served from the jami-app project
+- `vercel.json` — any path not in this folder is served from the jami-app project
 
-To preview locally: `npx serve .` then open http://localhost:3000
+New commits build a preview on Vercel; production is promoted manually after a check.
