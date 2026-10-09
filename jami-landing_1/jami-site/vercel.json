@@ -1,0 +1,6 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/:path*", "destination": "https://jami-frontend-f34y.vercel.app/:path*" }
+  ]
+}
