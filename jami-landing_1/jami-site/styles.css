@@ -415,3 +415,16 @@ button.open{cursor:pointer}
 .prose a{color:var(--purple-ink);border-bottom:1px solid rgba(82,68,235,.3)}
 .prose strong{color:var(--ink)}
 @media (max-width:960px){ .legal-grid.has-toc{grid-template-columns:1fr;gap:32px} .toc{position:static;max-height:none;border:1px solid var(--line);border-radius:18px;padding:18px 20px} }
+
+/* ---------- Official store badges ---------- */
+.badges{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.badges a{display:block;border-radius:9px;transition:translate .25s var(--ease),opacity .2s}
+.badges a:hover{translate:0 -2px}
+.badges a:focus-visible{outline-offset:2px}
+.badges img{display:block;width:auto;max-width:none}
+.badge-apple{height:44px}
+.badge-google{height:66px;margin:-11px -11px}
+.try-stores{margin-top:10px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;align-items:center;gap:14px;width:min(420px,100%)}
+.try-stores p{font:500 14px/1.4 var(--f-ui);color:#a8abb4}
+.try-stores .badges{justify-content:center}
+.panel .stores.badges{margin-top:32px}
